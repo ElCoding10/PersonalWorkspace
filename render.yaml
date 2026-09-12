@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: personal-assistant
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/workbench.sqlite
+    disk:
+      name: workbench-data
+      mountPath: /var/data
+      sizeGB: 1

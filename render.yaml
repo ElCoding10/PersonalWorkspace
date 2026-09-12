@@ -3,7 +3,7 @@ services:
     name: personal-assistant
     runtime: node
     buildCommand: corepack npm ci && corepack npm run build
-    startCommand: npm start
+    startCommand: corepack npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV

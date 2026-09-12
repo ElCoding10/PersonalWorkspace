@@ -2,7 +2,7 @@ services:
   - type: web
     name: personal-assistant
     runtime: node
-    buildCommand: corepack npm ci && corepack npm run build
+    buildCommand: corepack npm ci --include=dev && corepack npm run build
     startCommand: corepack npm start
     healthCheckPath: /api/health
     envVars:
